@@ -1,0 +1,71 @@
+#!/bin/bash
+
+#shopt -s extglob
+
+###################################################################
+# Lexicon-based detection of depression language
+#   - - variable DEPR_DIR sets the PATH for the main folder.
+#   - - The system contains a tokenizer but it requires Linguakit to be installed. You can dowload Linguakit from:
+#       https://github.com/citiususc/Linguakit/archive/master.zip
+
+
+#
+# ProLNat Group - CiTIUS - USC
+###################################################################
+###################################################################
+
+############################
+# Config
+############################
+
+DEPR_DIR="../depression_classification"
+PROGS=$DEPR_DIR"/scripts"
+LEX=$DEPR_DIR"/lexicons"
+
+LING="en"
+
+############################
+# Functions
+############################
+
+help()
+{
+  echo "Syntax: cat input_file |./classif  <module> [PoS_tags]
+      
+      module= tok or tag | you can just use a tokenizer (tok) or a PoS tagger (tag)
+      PoS_tags= N, V, J | if you use module tag, it is possible to classify using a specific tag: noun (N), verb (V), adj (J), or a combination of them: e.g. NJ, VNJ, JV, ... (by default: NVJ).
+
+      example of use: 
+      echo "I hate my life" |./classif tag VJ 
+       "
+  exit
+}
+
+
+# Parámetros obrigatorios
+[ $# -lt 1 ] && help
+MODULE=$1
+
+# Parámetros opcionais
+TAG="NVJ" #by default
+[ "$2" != "" ] && TAG=$2
+
+SENT=$PROGS"/sentences_exe.perl"; 
+TOK=$PROGS"/tokens_exe.perl";
+
+
+if [ "$MODULE" == "" ]  ; then
+  help;
+  echo "help" ;
+fi
+
+if [ "$MODULE" == "tok" ] ; then
+
+    tr -d '\015' | $SENT  | $TOK  | $PROGS/select_lex.perl $LEX/lexicon.txt | $PROGS/baseline_types.perl
+fi
+if [ "$MODULE" == "tag" ] && [ "$TAG" != "" ] ; then
+    cat $LEX/lexicon_lem.txt |grep -P "[$TAG]" > $LEX/temp.txt
+
+   tr -d '\015' | ~/Linguakit-master/linguakit tagger $LING   | $PROGS/select_lex_tagged.perl  $LEX/temp.txt $TAG |  $PROGS/baseline_tagged.perl $TAG
+fi
+

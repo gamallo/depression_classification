@@ -1,0 +1,7 @@
+addictive JJ
+amaze JJ
+helpful JJ
+party JJ
+sedative JJ
+stimulant JJ
+suicidal JJ

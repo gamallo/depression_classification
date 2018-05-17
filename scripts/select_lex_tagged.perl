@@ -1,0 +1,38 @@
+#!/usr/bin/perl -w
+
+##Toma como entrada a saída do FreeLing e devolve um texto etiquetado com algumas modificaçoes: verbos compostos, elimina determinantes e pronomes, etc.
+
+$file = shift(@ARGV);
+open (FILE, $file) or die "O ficheiro nom pode ser aberto: $!\n";
+$CAT = shift(@ARGV);
+
+##lendo o lexico
+while (my $line = <FILE>) {
+    chomp($line);
+   my ($lemma, $cat) = split (" ", $line);
+   $lemma =~ s/[\s]*$//;
+    #   $lemma =~ s/ /_/g;
+    if ($cat =~ /^[$CAT]/) {
+	$Dico{$lemma} =1;
+    }
+   #print STDERR "#$w#\n";
+}
+
+
+while (my $line = <STDIN>) {
+     chomp $line;
+     if (!$line){next}
+  
+     ($pal, $lemma, $tag) = split(" ", $line);
+    # print "$pal $lemma #$tag# -- #$line#\n";
+     if ($tag =~ /^[$CAT]/ && $Dico{$lemma}) {
+        
+	 print "$pal $lemma DEPR_${CAT}\n";
+	 print STDERR "--> #$lemma - $CAT\n";
+     }
+     else {
+         print "$line\n";
+     }
+}
+
+ 

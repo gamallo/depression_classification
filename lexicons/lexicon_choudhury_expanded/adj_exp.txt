@@ -1,0 +1,13 @@
+addictive JJ
+amaze JJ
+helpful JJ
+party JJ
+sedative JJ
+stimulant JJ
+suicidal JJ
+club JJ
+dazzle JJ
+strongholds JJ
+stun JJ
+surprise JJ
+troop JJ
