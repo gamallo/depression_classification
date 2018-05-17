@@ -13,9 +13,10 @@ Losada, David and Pablo Gamallo (...) "Evaluating and Improving a Lexical Resour
 ```
 
 ## REQUIREMENTS
-Linguakit. Please, donwload Linguakit:
+* Linguakit
+Please, donwload Linguakit:
 ```https://github.com/citiususc/Linguakit/archive/master.zip```
-and copy the Linguakit folder in folder `depression_classification` at the first level.
+and copy the Linguakit folder to `./depression_classification` at the first level.
 
 
 ## HOW TO INSTALL
