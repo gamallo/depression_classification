@@ -66,6 +66,6 @@ fi
 if [ "$MODULE" == "tag" ] && [ "$TAG" != "" ] ; then
     cat $LEX/lexicon_lem.txt |grep -P "[$TAG]" > $LEX/temp.txt
 
-   tr -d '\015' | ~/Linguakit-master/linguakit tagger $LING   | $PROGS/select_lex_tagged.perl  $LEX/temp.txt $TAG |  $PROGS/baseline_tagged.perl $TAG
+   tr -d '\015' | $DEPR_DIR/Linguakit-master/linguakit tagger $LING   | $PROGS/select_lex_tagged.perl  $LEX/temp.txt $TAG |  $PROGS/baseline_tagged.perl $TAG
 fi
 
