@@ -4,7 +4,7 @@ Lexicon-based method to detect signs of depression in text
 ## DESCRIPTION
 This software contains an unsupervised method to detect signs of depression. It takes a text and returns a value from 0 to 1 by taking into account a domain-specific lexicon. The lexicon used is that described in Choudhury et al. (2013).
 
-The system is als provided with all lexicons expanded with distribution models and WordNet from two existing ones: Choudhury lexicon (Choudhury et al. 2013) and Pedesis lexicon (Neuman&Cohen 2015).
+The repository is also provided with other lexicons expanded with the help of distribution models and WordNet from the two existing ones: Choudhury lexicon (Choudhury et al. 2013) and Pedesis lexicon (Neuman&Cohen 2015).
 
 All lexical resources, including expanded lexicons, are in folder `./lexicons`. More information can be found in the following paper:
 
