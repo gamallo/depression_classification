@@ -53,23 +53,23 @@ echo "Syntax: cat input_file |./classif  <module> [PoS_tags]
 
 ## EXAMPLES
 
-Use tokenized text:
+Tokenized text:
 ```
 echo "I hate my life" |./classif tok  
 ```
-Use tagged text without specifying any PoS tag:
+Tagged text without specifying any PoS tag:
 ```
 echo "I hate my life" |./classif tag
 ```
-Use tagged text with just nouns:
+Tagged text with just nouns:
 ```
 echo "I hate my life" |./classif tag N
 ```
-Use tagged text with nouns and adjectives:
+Tagged text with nouns and adjectives:
 ```
 echo "I hate my life" |./classif tag NJ
 ```
-Use tagged text with nouns, verbs and adjectives:
+Tagged text with nouns, verbs and adjectives (by default configuration):
 ```
 echo "I hate my life" |./classif tag NJV
 ```
