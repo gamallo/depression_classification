@@ -2,7 +2,7 @@
 Lexicon-based method to detect signs of depression in text
 
 ## DESCRIPTION
-This software contains an unsupervised method to detect signs of depression. It takes a text and returns a value from 0 to 1 by taking into account a domain-specific lexicon. The classification method is a baseline strategy based on identifying entries of the lexicon in the input text. Two versions of the lexicon are used: either just word forms of lemma / PoS tags pairs.  The specific lexicon provided by this repository is that described in Choudhury et al. (2013).
+This software contains an unsupervised method to detect signs of depression. It takes a text and returns a value from 0 to 1 by taking into account a domain-specific lexicon. The classification method is a baseline strategy based on identifying entries of the lexicon in the input text. Two versions of the lexicon are used: both just word forms and lemma / PoS tags pairs. The specific lexicon provided by this repository is that described in Choudhury et al. (2013).
 
 The repository is also provided with other lexicons expanded with the help of distribution models and WordNet from the two existing ones: Choudhury lexicon (Choudhury et al. 2013) and Pedesis lexicon (Neuman&Cohen 2015).
 
